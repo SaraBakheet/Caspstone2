@@ -9,20 +9,19 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
-class LogIn : AppCompatActivity() {
+    class LogIn : AppCompatActivity() {
     private lateinit var edtEmail:EditText
     private lateinit var edtPassword:EditText
     private lateinit var btnLogin: Button
     private lateinit var btnSignUp :Button
-
     private lateinit var mAuth :FirebaseAuth
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
-supportActionBar?.hide()
+        supportActionBar?.hide()
 
         mAuth= FirebaseAuth.getInstance()
-
         edtEmail =findViewById(R.id.edt_email)
         edtPassword= findViewById(R.id.edt_password)
         btnLogin=findViewById(R.id.btnlogin)
@@ -47,12 +46,13 @@ supportActionBar?.hide()
                 task->
                 if (task.isSuccessful) {
                     //code for loggin in user
-                    val intent = Intent(this,MainActivity::class.java)
+                    val intent = Intent(this@LogIn,MainActivity::class.java)
+                   finish()
                     startActivity(intent)
 
                 }
                 else{
-                    Toast.makeText(this,"User does not exist",Toast.LENGTH_SHORT)
+                    Toast.makeText(this@LogIn,"User does not exist",Toast.LENGTH_SHORT)
                 }
             }
 
