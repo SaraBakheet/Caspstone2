@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -15,6 +16,10 @@ import com.google.firebase.auth.FirebaseAuth
     private lateinit var btnLogin: Button
     private lateinit var btnSignUp :Button
     private lateinit var mAuth :FirebaseAuth
+
+        private lateinit var ForgetPass:TextView
+//        private lateinit var btn_login :Button
+//        private lateinit var tv_forget_password: TextView
 
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +32,11 @@ import com.google.firebase.auth.FirebaseAuth
         btnLogin=findViewById(R.id.btnlogin)
         btnSignUp=findViewById(R.id.btnSignUp)
 
+         ForgetPass=findViewById(R.id.ForgetPass)
+//         btn_login=findViewById(R.id.et_login_password)
+//         tv_forget_password=findViewById(R.id.til_forget_email)
+
+
         btnSignUp.setOnClickListener {
             val intent = Intent(this, SignUp::class.java )
             startActivity(intent)
@@ -38,6 +48,12 @@ import com.google.firebase.auth.FirebaseAuth
 
     login(email,password);
 }
+//         btn_login.setOnClickListener {
+//
+//         }
+         ForgetPass.setOnClickListener {
+             startActivity(Intent(this@LogIn,ForgetPassWord::class.java))
+         }
     }
     private fun login(email:String,password:String){
         //logic for logging user

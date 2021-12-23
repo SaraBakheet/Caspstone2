@@ -1,4 +1,4 @@
-package com.tuwaiq.caspstone2
+package com.tuwaiq.caspstone2.register
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,15 +9,17 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.tuwaiq.caspstone2.MainActivity
+import com.tuwaiq.caspstone2.R
+import com.tuwaiq.caspstone2.User
 
 class SignUp : AppCompatActivity() {
-    private lateinit var edtEmail: EditText
-    private lateinit var edtPassword: EditText
-   private lateinit var edtName:EditText
-    private lateinit var btnSignUp : Button
-    private lateinit var mAuth:FirebaseAuth
+     private lateinit var edtEmail: EditText
+     private lateinit var edtPassword: EditText
+     private lateinit var edtName:EditText
+     private lateinit var btnSignUp : Button
+     private lateinit var mAuth:FirebaseAuth
      private lateinit var mDbRef :DatabaseReference
-
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -47,7 +49,7 @@ class SignUp : AppCompatActivity() {
                     //code for jumping to home
                         addUserToDatabase(name,email,mAuth.currentUser?.uid!!)
 
-                    val intent = Intent(this@SignUp,MainActivity::class.java)
+                    val intent = Intent(this@SignUp, MainActivity::class.java)
                    finish()
                     startActivity(intent)
 
