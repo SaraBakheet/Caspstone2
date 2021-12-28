@@ -11,7 +11,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.tuwaiq.caspstone2.MainActivity
 import com.tuwaiq.caspstone2.R
-import com.tuwaiq.caspstone2.User
+import com.tuwaiq.caspstone2.Adapter.User
 
 class SignUp : AppCompatActivity() {
      private lateinit var edtEmail: EditText
@@ -55,13 +55,14 @@ class SignUp : AppCompatActivity() {
 
                 }
                 else{
-                    Toast.makeText(this@SignUp,"errrror ya Sara error",Toast.LENGTH_SHORT)
+                    Toast.makeText(this@SignUp,"Error try again",Toast.LENGTH_SHORT)
                         .show()
                 }
 
             }
 
     }
+
        private fun addUserToDatabase(name: String,email: String,uid:String){
        mDbRef=FirebaseDatabase.getInstance().getReference()
 

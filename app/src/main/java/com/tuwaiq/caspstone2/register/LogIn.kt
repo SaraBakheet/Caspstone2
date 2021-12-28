@@ -1,16 +1,17 @@
-package com.tuwaiq.caspstone2
+package com.tuwaiq.caspstone2.register
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.tuwaiq.caspstone2.MainActivity
+import com.tuwaiq.caspstone2.R
 
-    class LogIn : AppCompatActivity() {
+class LogIn : AppCompatActivity() {
     private lateinit var edtEmail:EditText
     private lateinit var edtPassword:EditText
     private lateinit var btnLogin: Button
@@ -24,6 +25,7 @@ import com.google.firebase.auth.FirebaseAuth
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
+
         supportActionBar?.hide()
 
         mAuth= FirebaseAuth.getInstance()
@@ -52,7 +54,7 @@ import com.google.firebase.auth.FirebaseAuth
 //
 //         }
          ForgetPass.setOnClickListener {
-             startActivity(Intent(this@LogIn,ForgetPassWord::class.java))
+             startActivity(Intent(this@LogIn, ForgetPassWord::class.java))
          }
     }
     private fun login(email:String,password:String){
@@ -62,13 +64,13 @@ import com.google.firebase.auth.FirebaseAuth
                 task->
                 if (task.isSuccessful) {
                     //code for loggin in user
-                    val intent = Intent(this@LogIn,MainActivity::class.java)
+                    val intent = Intent(this@LogIn, MainActivity::class.java)
                    finish()
                     startActivity(intent)
 
                 }
                 else{
-                    Toast.makeText(this@LogIn,"User does not exist",Toast.LENGTH_SHORT)
+                    Toast.makeText(this@LogIn,"User does not exist",Toast.LENGTH_SHORT).show()
                 }
             }
 

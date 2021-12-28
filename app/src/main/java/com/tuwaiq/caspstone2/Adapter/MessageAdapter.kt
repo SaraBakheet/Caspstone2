@@ -1,4 +1,4 @@
-package com.tuwaiq.caspstone2
+package com.tuwaiq.caspstone2.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
+
+import com.tuwaiq.caspstone2.R
 
 class MessageAdapter(val context: Context, val messageList: ArrayList<Message>):
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
