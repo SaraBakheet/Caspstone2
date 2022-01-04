@@ -1,6 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back6"
+    tools:context=".home">
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="238dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="40dp"
+        android:text="FORGET PASSWORD"
+        android:textColor="#0B0000"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title_descriotion"
+        android:layout_width="198dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="53dp"
+        android:text="enterEmail"
+        android:textColor="#090909"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toTopOf="@+id/til_forget_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/til_forget_email"
+        android:layout_width="265dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="67dp"
+        android:ems="10"
+        android:hint="E-mail"
+        android:inputType="textPersonName"
+        android:textColor="#0C0C0C"
+        android:textColorHint="#6b6961"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toTopOf="@+id/Btn_submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/Btn_submit"
+        android:layout_width="247dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="100dp"
+        android:text="SUBMIT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_forget_email" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+

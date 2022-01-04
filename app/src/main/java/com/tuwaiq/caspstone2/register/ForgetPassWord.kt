@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.tuwaiq.caspstone2.R
 
 class ForgetPassWord : AppCompatActivity() {
-//    private lateinit var arrow: ImageView
+
     private lateinit var tv_title:TextView
     private lateinit var tv_title_descriotion:TextView
     private lateinit var til_forget_email:TextView
@@ -30,13 +30,9 @@ class ForgetPassWord : AppCompatActivity() {
         til_forget_email=findViewById(R.id.til_forget_email)
         Btn_submit=findViewById(R.id.Btn_submit)
 
-//        arrow.setOnClickListener {
-//            startActivity(Intent(this, LogIn::class.java))
-//
-//
-//            }
+
         Btn_submit.setOnClickListener {
-//            startActivity(Intent(this,LogIn::class.java))
+
             val email: String = til_forget_email.text.toString().trim{it <= ' '}
             if (email.isEmpty()){
                 Toast.makeText(

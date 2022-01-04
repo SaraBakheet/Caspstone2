@@ -9,7 +9,10 @@ class Message {
     constructor(message: String? , sendId: String?){
         this.message=message
         this.sendId= sendId
+       // this.recevir=re
         //this.receiverId=receiverId
 
+
+        
     }
 }

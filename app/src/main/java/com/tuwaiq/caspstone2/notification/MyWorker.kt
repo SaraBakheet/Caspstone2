@@ -1,4 +1,4 @@
-package com.tuwaiq.caspstone2
+package com.tuwaiq.caspstone2.notification
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -11,6 +11,8 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.work.Worker
 import androidx.work.WorkerParameters
+import com.tuwaiq.caspstone2.R
+import com.tuwaiq.caspstone2.home
 
 class MyWorker(context: Context,workerParameters: WorkerParameters):
 Worker(context,workerParameters){
@@ -18,6 +20,7 @@ Worker(context,workerParameters){
         const val  CHANNEL_ID ="channel_id"
         const val NOTIFICATION_ID =1
     }
+
 
     override fun doWork(): Result {
         Log.d("do work succes","dowork:Success function called")
@@ -27,26 +30,12 @@ Worker(context,workerParameters){
         return Result.success()
     }
     private fun showNotification(){
-//        val intent = Intent(applicationContext,MainActivity::class.java).apply {
-//            flags=Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//        }
-//        val pendingIntent=PendingIntent.getActivity(
-//            applicationContext,0,intent,0
-//        )
-//        val builder = NotificationCompat.Builder(applicationContext,"my_unique_id")
-//            .setSmallIcon(R.id.chat1)
-//            .setContentTitle("Life is good")
-//            .setContentText("subscribe on the channel ")
-//            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-//            .setAutoCancel(true)
-//            .setContentIntent(pendingIntent)
-//
-//        with(NotificationManagerCompat.from(applicationContext)){
-//            notify(1,builder.build())
-//        }
+
+       // implementation 'androidx.work:work-runtime-ktx:2.5.0'
 
 
-        val intent =Intent(applicationContext,MainActivity::class.java).apply {
+
+        val intent =Intent(applicationContext, home::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
         val pendingIntent = PendingIntent.getActivity(

@@ -9,9 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.tuwaiq.caspstone2.MainActivity
 import com.tuwaiq.caspstone2.R
 import com.tuwaiq.caspstone2.Adapter.User
+import com.tuwaiq.caspstone2.home
 
 class SignUp : AppCompatActivity() {
      private lateinit var edtEmail: EditText
@@ -27,9 +27,14 @@ class SignUp : AppCompatActivity() {
         supportActionBar?.hide()
 
         mAuth = FirebaseAuth.getInstance()
+
         edtEmail =findViewById(R.id.edt_email)
+
         edtPassword= findViewById(R.id.edt_password)
+
        edtName=findViewById(R.id.edt_name)
+
+
         btnSignUp=findViewById(R.id.btnSignUp)
 
 
@@ -42,14 +47,14 @@ class SignUp : AppCompatActivity() {
         }
     }
         private fun signUp(name:String,email:String,password:String){
-        //logic of creating user
+
         mAuth.createUserWithEmailAndPassword(email,password)
             .addOnCompleteListener(this){ task->
                 if (task.isSuccessful){
                     //code for jumping to home
                         addUserToDatabase(name,email,mAuth.currentUser?.uid!!)
 
-                    val intent = Intent(this@SignUp, MainActivity::class.java)
+                    val intent = Intent(this@SignUp, home::class.java)
                    finish()
                     startActivity(intent)
 
@@ -70,4 +75,30 @@ class SignUp : AppCompatActivity() {
 
 
     }
-}
+
+//    override fun setInheritShowWhenLocked(inheritShowWhenLocked: Boolean) {
+//        super.setInheritShowWhenLocked(inheritShowWhenLocked)
+//    }
+//
+//    override fun reportFullyDrawn() {
+//        super.reportFullyDrawn()
+//    }
+//
+//    override fun checkCallingOrSelfPermission(permission: String): Int {
+//        return super.checkCallingOrSelfPermission(permission)
+//    }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

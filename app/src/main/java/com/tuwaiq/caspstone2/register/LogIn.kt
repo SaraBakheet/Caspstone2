@@ -8,8 +8,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.tuwaiq.caspstone2.MainActivity
 import com.tuwaiq.caspstone2.R
+import com.tuwaiq.caspstone2.home
 
 class LogIn : AppCompatActivity() {
     private lateinit var edtEmail:EditText
@@ -64,9 +64,11 @@ class LogIn : AppCompatActivity() {
                 task->
                 if (task.isSuccessful) {
                     //code for loggin in user
-                    val intent = Intent(this@LogIn, MainActivity::class.java)
+                    val intent = Intent(this@LogIn, home::class.java)
                    finish()
                     startActivity(intent)
+
+
 
                 }
                 else{

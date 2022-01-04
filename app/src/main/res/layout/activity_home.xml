@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECE2E2"
+    android:backgroundTint="#F4E7E7"
+    android:backgroundTintMode="screen"
+    tools:context=".home">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/userRecyclerView"
+        android:layout_width="406dp"
+        android:layout_height="645dp"
+        android:background="#0F8A8282"
+        android:backgroundTint="#68656E"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.139"
+        tools:listitem="@layout/user_layout" />
+
+    <ImageView
+        android:id="@+id/chat1"
+        android:layout_width="43dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="192dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userRecyclerView"
+        app:layout_constraintVertical_bias="0.333"
+        app:srcCompat="@drawable/chat" />
+
+    <ImageView
+        android:id="@+id/maps1"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/chat1"
+        app:layout_constraintTop_toBottomOf="@+id/userRecyclerView"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/maps" />
+
+    <ImageView
+        android:id="@+id/profile1"
+        android:layout_width="38dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toEndOf="@+id/chat1"
+        app:layout_constraintTop_toBottomOf="@+id/userRecyclerView"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/profile1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
