@@ -12,8 +12,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userRecyclerView"
-        android:layout_width="406dp"
-        android:layout_height="645dp"
+        android:layout_width="397dp"
+        android:layout_height="622dp"
         android:background="#0F8A8282"
         android:backgroundTint="#68656E"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,12 +30,12 @@
         android:layout_width="43dp"
         android:layout_height="48dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="192dp"
+        android:layout_marginEnd="196dp"
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userRecyclerView"
-        app:layout_constraintVertical_bias="0.333"
+        app:layout_constraintVertical_bias="0.236"
         app:srcCompat="@drawable/chat" />
 
     <ImageView
@@ -53,15 +53,15 @@
 
     <ImageView
         android:id="@+id/profile1"
-        android:layout_width="38dp"
-        android:layout_height="36dp"
+        android:layout_width="37dp"
+        android:layout_height="33dp"
         android:layout_marginStart="49dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toEndOf="@+id/chat1"
         app:layout_constraintTop_toBottomOf="@+id/userRecyclerView"
         app:layout_constraintVertical_bias="0.0"
