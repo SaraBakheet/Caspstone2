@@ -25,6 +25,7 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<Message>):
         val view :View = LayoutInflater.from(context).inflate(R.layout.sent,parent,false)
         return SentViewHolder(view)
     }
+
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -33,10 +34,14 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<Message>):
 
         if (holder.javaClass == SentViewHolder::class.java) {
             //do the stuff for sent view holder
-
-
             val viewHolder = holder as SentViewHolder
-            holder.sentMessage.text=currentMessage.message
+            if (currentMessage.message.equals("photo")){
+               // viewHolder.sentMessage.image.visibility=View.VISIBLE
+                holder.sentMessage.text=currentMessage.message
+                holder.sentMessage.imag
+            }
+           // holder.sentMessage.text=currentMessage.message
+
 
         } else{
             //do stuff for receive view holder

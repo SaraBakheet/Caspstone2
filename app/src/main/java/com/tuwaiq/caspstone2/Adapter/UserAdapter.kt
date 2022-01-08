@@ -12,7 +12,7 @@ import com.tuwaiq.caspstone2.ChatActivity
 import com.tuwaiq.caspstone2.R
 
 
-class UserAdapter(val context:Context,val userList:ArrayList<User>):
+class UserAdapter(val context:Context, var userList:ArrayList<User>):
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {

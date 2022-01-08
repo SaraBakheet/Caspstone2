@@ -60,7 +60,7 @@
         tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/Save"
+        android:id="@+id/logOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="57dp"
@@ -79,11 +79,11 @@
         android:layout_marginStart="76dp"
         android:text="delete Account"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/Save"
+        app:layout_constraintEnd_toStartOf="@+id/logOut"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pass1"
-        app:layout_constraintVertical_bias="0.368" />
+        app:layout_constraintVertical_bias="0.262" />
 
     <Button
         android:id="@+id/UpdateProfile"
@@ -98,4 +98,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/delete"
         app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/call1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="65dp"
+        android:text="call"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/UpdateProfile"
+        app:layout_constraintTop_toBottomOf="@+id/logOut" />
 </androidx.constraintlayout.widget.ConstraintLayout>

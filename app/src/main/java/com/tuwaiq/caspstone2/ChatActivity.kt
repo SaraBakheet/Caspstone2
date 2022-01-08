@@ -29,6 +29,7 @@ import com.tuwaiq.caspstone2.Adapter.MessageAdapter
 import com.tuwaiq.caspstone2.register.SignUp
 import java.security.cert.PKIXRevocationChecker
 
+
 class ChatActivity : AppCompatActivity() {
     private lateinit var chatRecyclerView: RecyclerView
     private lateinit var messageBox: EditText
@@ -137,6 +138,7 @@ class ChatActivity : AppCompatActivity() {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
+
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when(requestCode){
     PermUtil.REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS ->{
@@ -148,18 +150,17 @@ class ChatActivity : AppCompatActivity() {
             Toast.makeText(this,"Approve permission to open Pix ImagePicker",Toast.LENGTH_SHORT).show()
         }
 
+
     return
 }}
 
+
+
         }
+
     }
 
-//enum class AppUtil {
-////
-//}
-//
-//class ActivityMessageBinding {
-////*
+
 
 
 

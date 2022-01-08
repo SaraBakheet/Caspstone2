@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
+import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.work.*
@@ -18,7 +19,7 @@ import com.tuwaiq.caspstone2.notification.MyWorker
 import com.tuwaiq.caspstone2.register.LogIn
 import java.util.concurrent.TimeUnit
 
-class home : AppCompatActivity() {
+class home : AppCompatActivity()  {
 
     private lateinit var userRecyclerView: RecyclerView
     private lateinit var userList: ArrayList<User>
@@ -26,6 +27,7 @@ class home : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mDbRef: DatabaseReference
     private lateinit var profile: ImageView
+    private lateinit var searchItem: SearchView
     // private lateinit var maps: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,10 +36,6 @@ class home : AppCompatActivity() {
 
 
 
-        //simpleWork()
-        //simpleWork()//simpleWork()//simpleWork()
-        //simpleWork()
-        //simpleWork()
 
         myWorkManager()
 
@@ -107,22 +105,28 @@ class home : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu, menu)
 
         return super.onCreateOptionsMenu(menu)
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//1
 
-        if (item.itemId == R.id.logout) {
-            //write the loginnnn for logout
-            mAuth.signOut()
-            val intent = Intent(this@home, LogIn::class.java)
-            finish()
-            startActivity(intent)
-
-            return true
-        }
-        return true
 
     }
+
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//
+
+   // val i:intent
+//        if (item.itemId == R.id.call) {
+//            //write the loginnnn for logout
+//            mAuth.signOut()
+//            val intent = Intent(this@home, LogIn::class.java)
+//            finish()
+//            startActivity(intent)
+//
+//            return true
+//        }
+//        return true
+//
+//    }
 
     private fun simpleWork(){
         val mRequest: WorkRequest = OneTimeWorkRequestBuilder<MyWorker>()
@@ -155,7 +159,23 @@ class home : AppCompatActivity() {
             )
     }
 
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
