@@ -37,9 +37,6 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var messageAdapter: MessageAdapter
     private lateinit var messageList: ArrayList<Message>
     private lateinit var mDbRef: DatabaseReference
-
-
-
     var receiverRoom: String? = null
     var senderRoom: String? = null
 

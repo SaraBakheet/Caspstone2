@@ -3,7 +3,7 @@ package com.tuwaiq.caspstone2.Adapter
 class Message {
     var message :String? = null
     var sendId : String? = null
-    var imageUrl :String? =null
+   // var imageUrl :String? =null
   //  var receiverId :String?=null
      constructor(){}
 
