@@ -16,6 +16,9 @@
         android:theme="@style/Theme.AppCompat"
         tools:replace="android:theme">
         <activity
+            android:name=".Setting"
+            android:exported="false" />
+        <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity

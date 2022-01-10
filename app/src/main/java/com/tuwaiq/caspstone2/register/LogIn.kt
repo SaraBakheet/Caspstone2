@@ -12,72 +12,97 @@ import com.tuwaiq.caspstone2.R
 import com.tuwaiq.caspstone2.home
 
 class LogIn : AppCompatActivity() {
-    private lateinit var edtEmail:EditText
-    private lateinit var edtPassword:EditText
+    private lateinit var edtEmail: EditText
+    private lateinit var edtPassword: EditText
     private lateinit var btnLogin: Button
-    private lateinit var btnSignUp :Button
-    private lateinit var mAuth :FirebaseAuth
+    private lateinit var btnSignUp: Button
+    private lateinit var mAuth: FirebaseAuth
 
-        private lateinit var ForgetPass:TextView
-//        private lateinit var btn_login :Button
-//        private lateinit var tv_forget_password: TextView
-
-     override fun onCreate(savedInstanceState: Bundle?) {
+    private lateinit var ForgetPass: TextView
+    private val EMAIL_PATTERN = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//         mAuth = FirebaseAuth.getInstance()
+//         if (mAuth.uid != null)  openApp()
+        //عشان اذا المستخدم مسجل من قبل مايطلب منه تسجيل ثاني
         setContentView(R.layout.activity_log_in)
 
         supportActionBar?.hide()
 
-        mAuth= FirebaseAuth.getInstance()
-        edtEmail =findViewById(R.id.edt_email)
-        edtPassword= findViewById(R.id.edt_password)
-        btnLogin=findViewById(R.id.btnlogin)
-        btnSignUp=findViewById(R.id.btnSignUp)
+        mAuth = FirebaseAuth.getInstance()
+        edtEmail = findViewById(R.id.edt_email)
+        edtPassword = findViewById(R.id.edt_password)
+        btnLogin = findViewById(R.id.btnlogin)
+        btnSignUp = findViewById(R.id.btnSignUp)
 
-         ForgetPass=findViewById(R.id.ForgetPass)
+        ForgetPass = findViewById(R.id.ForgetPass)
 //         btn_login=findViewById(R.id.et_login_password)
 //         tv_forget_password=findViewById(R.id.til_forget_email)
 
 
         btnSignUp.setOnClickListener {
-            val intent = Intent(this, SignUp::class.java )
+            val intent = Intent(this, SignUp::class.java)
             startActivity(intent)
         }
 
-         btnLogin.setOnClickListener {
+        btnLogin.setOnClickListener {
             val email = edtEmail.text.toString()
-             val password =edtPassword.text.toString()
+            val password = edtPassword.text.toString()
 
-    login(email,password);
-}
+            login(email, password);
+        }
 //         btn_login.setOnClickListener {
 //
 //         }
-         ForgetPass.setOnClickListener {
-             startActivity(Intent(this@LogIn, ForgetPassWord::class.java))
-         }
+        ForgetPass.setOnClickListener {
+            startActivity(Intent(this@LogIn, ForgetPassWord::class.java))
+        }
     }
-    private fun login(email:String,password:String){
-        //logic for logging user
-        mAuth.signInWithEmailAndPassword(email,password)
-            .addOnCompleteListener(this){
-                task->
+
+
+    private fun login(email: String, password: String): Boolean {
+
+        if (email.matches(EMAIL_PATTERN.toRegex())) {
+
+
+
+            // logic for logging user
+
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
+
                 if (task.isSuccessful) {
-                    //code for loggin in user
+
+                    // code for loggin in user
+
                     val intent = Intent(this@LogIn, home::class.java)
-                   finish()
+
+                    finish()
+
                     startActivity(intent)
 
+                } else {
 
+                    Toast.makeText(this@LogIn, "User does not exist", Toast.LENGTH_SHORT).show()
 
                 }
-                else{
-                    Toast.makeText(this@LogIn,"User does not exist",Toast.LENGTH_SHORT).show()
-                }
+
             }
 
 
 
+            return true
+
+        }
+
+
+
+        return false
+
+    }
+    private fun openApp() {
+        val intent = Intent(this@LogIn, home::class.java)
+        finish()
+        startActivity(intent)
     }
 
 

@@ -3,11 +3,13 @@ package com.tuwaiq.caspstone2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.ImageView
-import android.widget.SearchView
+import androidx.appcompat.widget.SearchView
+import androidx.core.view.get
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.work.*
@@ -15,66 +17,42 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.tuwaiq.caspstone2.Adapter.User
 import com.tuwaiq.caspstone2.Adapter.UserAdapter
-import com.tuwaiq.caspstone2.notification.MyWorker
+
 import com.tuwaiq.caspstone2.register.LogIn
 import java.util.concurrent.TimeUnit
 
-class home : AppCompatActivity()  {
-
+class home : AppCompatActivity(), SearchView.OnQueryTextListener {
+    private lateinit var searchItem: SearchView
     private lateinit var userRecyclerView: RecyclerView
     private lateinit var userList: ArrayList<User>
     private lateinit var adapter: UserAdapter
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mDbRef: DatabaseReference
     private lateinit var profile: ImageView
-    private lateinit var searchItem: SearchView
-    // private lateinit var maps: ImageView
+    private lateinit var setting: ImageView
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-
-
-
+       // simpleWork()
         myWorkManager()
 
+        // replaceFragment(homeFragment as homeFragment)
         mAuth = FirebaseAuth.getInstance()
         mDbRef = FirebaseDatabase.getInstance().getReference()
 
         userList = ArrayList()
         adapter = UserAdapter(this, userList)
 
-
-        profile = findViewById(R.id.profile1)
-        // maps = findViewById(R.id.maps1)
         userRecyclerView = findViewById(R.id.userRecyclerView)
-
+        profile = findViewById(R.id.profile1)
+        setting = findViewById(R.id.setting)
         userRecyclerView.layoutManager = LinearLayoutManager(this)
         userRecyclerView.adapter = adapter
         //show in recylrerview
-
-//        var uid: String = ""
-//        var id:String ? = mAuth.currentUser?.uid
-//
-//        if (id != null) {
-//
-//            uid = id;
-//
-//            mDbRef.child("user").child(uid).get().addOnSuccessListener {
-//                Log.i("firebase", "Got value ${it.value}")
-//            }.addOnFailureListener{
-//                Log.e("firebase", "Error getting data", it)
-//            }
-//
-//        }
-
-
-        // المكان
-        profile.setOnClickListener {
-            val intent = Intent(this, ProfileActivity::class.java )
-            startActivity(intent)
-        }
 
         mDbRef.child("user").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -98,44 +76,54 @@ class home : AppCompatActivity()  {
             }
 
         })
-
+        profile.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java )
+            startActivity(intent)
+        }
+        setting.setOnClickListener {
+            val intent = Intent(this, Setting::class.java )
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
-
+        searchItem = (menu!!.findItem(R.id.search).actionView as SearchView)
+        searchItem.setOnQueryTextListener(this)
         return super.onCreateOptionsMenu(menu)
+    }
 
-//1
+
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        adapter.userList = ArrayList(userList.filter { it.name!!.toLowerCase().contains(newText!!.toLowerCase().toString()) })
+        adapter.notifyDataSetChanged()
+        return true
+    }
+
+
+    override fun onBackPressed() {
+        if (!searchItem.isIconified) {
+            searchItem.onActionViewCollapsed();
+            onQueryTextChange("")
+            return
+        } else super.onBackPressed()
 
 
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//
-
-   // val i:intent
-//        if (item.itemId == R.id.call) {
-//            //write the loginnnn for logout
-//            mAuth.signOut()
-//            val intent = Intent(this@home, LogIn::class.java)
-//            finish()
-//            startActivity(intent)
-//
-//            return true
-//        }
-//        return true
-//
-//    }
-
     private fun simpleWork(){
-        val mRequest: WorkRequest = OneTimeWorkRequestBuilder<MyWorker>()
+        val mRequest:WorkRequest = OneTimeWorkRequestBuilder<MyWorker>()
             .build()
         WorkManager.getInstance(this)
             .enqueue(mRequest)
     }
     private fun myWorkManager(){
-        val constraints= Constraints.Builder()
+        val constraints = Constraints.Builder()
             .setRequiresCharging(false)
             .setRequiredNetworkType(NetworkType.NOT_REQUIRED)
             .setRequiresCharging(false)
@@ -148,20 +136,21 @@ class home : AppCompatActivity()  {
             TimeUnit.MINUTES
         ).setConstraints(constraints)
             .build()
-        //minimum interval is 15 min , just wait is min , i will cut this ..
-        //to show u quickly
+        //minimum interval is 15min , just wait 15 min
         WorkManager.getInstance(this)
             .enqueueUniquePeriodicWork(
                 "my_id",
                 ExistingPeriodicWorkPolicy.KEEP,
                 myRequest
-
             )
     }
-
-
-
 }
+
+
+
+
+
+
 
 
 

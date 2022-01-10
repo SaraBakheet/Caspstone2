@@ -27,15 +27,6 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var pass: TextView
     private lateinit var email: TextView
     private lateinit var name: TextView
-    private lateinit var deleteAccount: Button
-    private lateinit var logOut:Button
-    private lateinit var call:Button
-
-
-    // private lateinit var UpdateProfile:Button
-
-    private lateinit var builder: AlertDialog.Builder
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,24 +34,15 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_profile)
+        updateProfile()
 
-
-        user=FirebaseAuth.getInstance()
+        user = FirebaseAuth.getInstance()
         mAuth = FirebaseAuth.getInstance()
         mDbRef = FirebaseDatabase.getInstance().getReference()
         name = findViewById(R.id.name1)
         pass = findViewById(R.id.pass1)
         email = findViewById(R.id.email1)
-        deleteAccount = findViewById(R.id.delete)
-        logOut=findViewById(R.id.logOut)
-        call=findViewById(R.id.call1)
 
-
-        //  UpdateProfile=findViewById(R.id.UpdateProfile)
-
-
-
-        //here
 
         var uid: String = ""
 
@@ -87,118 +69,29 @@ class ProfileActivity : AppCompatActivity() {
 
         }
 
-        deleteAccount = findViewById(R.id.delete)
 
-        builder = AlertDialog.Builder(this)
-
-        deleteAccount.setOnClickListener {
-
-            builder.setTitle("Delete")
-
-                .setMessage("Do you want to Delete?")
-
-                .setCancelable(true)
-
-                .setPositiveButton("yes") { dialogInterface, it ->
-
-                    // to delete user
-
-                    deleteUser()
-
-                    val intent = Intent(this, LogIn::class.java)
-
-                    startActivity(intent)
-
-                }
-
-
-                .setNegativeButton("no") { dialogInterface, it ->
-
-                    dialogInterface.cancel()
-
-                    // to cancel
-
-                }
-
-                .show()
-
-        }
-
-        logOut.setOnClickListener {
-            builder.setTitle("Chat me")
-
-                .setMessage("Do you want to Log out")
-
-                .setCancelable(true)
-
-                .setPositiveButton("yes") { dialogInterface, it ->
-
-
-
-                    LogOutUser()
-
-                    val intent = Intent(this, LogIn::class.java)
-
-                    startActivity(intent)
-
-                }
-
-
-                .setNegativeButton("no") { dialogInterface, it ->
-
-                    dialogInterface.cancel()
-
-                    // to cancel
-
-                }
-
-                .show()
-
-
-
-
-        }
-        call.setOnClickListener {
-
-
-            val i :Intent = Intent(Intent.ACTION_DIAL)
-            intent.data=Uri.parse("")
-            startActivity(i)
-        }
     }
 
 
+    private fun updateProfile() {
+        // [START update_profile]
+        val user = Firebase.auth.currentUser
 
-    private fun deleteUser() {
+        val profileUpdates = userProfileChangeRequest {
+            displayName = "Jane Q. User"
+            photoUri = Uri.parse("https://example.com/jane-q-user/profile.jpg")
+        }
 
-        // [START delete_user]
-
-        val user = Firebase.auth.currentUser!!
-
-        user.delete()
-
+        user!!.updateProfile(profileUpdates)
             .addOnCompleteListener { task ->
-
                 if (task.isSuccessful) {
-
-                    Log.d(TAG, "User account deleted.")
-
+                    Log.d(TAG, "User profile updated.")
                 }
-
             }
 
-        finish()
 
     }
-
-
-    private fun LogOutUser(){
-    user.signOut()
-    }
-
-
-
-        }
+}
 
 
 

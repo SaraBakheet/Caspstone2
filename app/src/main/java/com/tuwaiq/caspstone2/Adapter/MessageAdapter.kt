@@ -19,16 +19,16 @@ class MessageAdapter(val context:Context,val messageList:ArrayList<Message>):
     val ITEM_SENT = 2
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-     if (viewType==1){
-         //infate receive
-         val view: View =LayoutInflater.from(context).inflate(R.layout.receive,parent,false)
-         return ReceiveViewHolder(view)
+        if (viewType==1){
+            //infate receive
+            val view: View =LayoutInflater.from(context).inflate(R.layout.receive,parent,false)
+            return ReceiveViewHolder(view)
 
-     } else{
-         //inflate sent
-         val view: View =LayoutInflater.from(context).inflate(R.layout.sent,parent,false)
-         return SentViewHolder(view)
-     }
+        } else{
+            //inflate sent
+            val view: View =LayoutInflater.from(context).inflate(R.layout.sent,parent,false)
+            return SentViewHolder(view)
+        }
 
 
     }
@@ -37,15 +37,15 @@ class MessageAdapter(val context:Context,val messageList:ArrayList<Message>):
         val currentMessage= messageList[position]
 
         if (holder.javaClass==SentViewHolder::class.java){
-          //do the stuff for sent view holder
+            //do the stuff for sent view holder
 
-          val viewHolder=holder as SentViewHolder
-          holder.sentMessage.text=currentMessage.message
-      } else{
-          //do the stuff for receive view holder
-          val viewHolder= holder as ReceiveViewHolder
-          holder.receiveMessage.text = currentMessage.message
-      }
+            val viewHolder=holder as SentViewHolder
+            holder.sentMessage.text=currentMessage.message
+        } else{
+            //do the stuff for receive view holder
+            val viewHolder= holder as ReceiveViewHolder
+            holder.receiveMessage.text = currentMessage.message
+        }
 
 
     }
