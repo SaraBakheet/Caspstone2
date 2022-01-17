@@ -12,5 +12,10 @@
         android:title="Search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="always" />
-    />
+    <item
+        android:id="@+id/newChat"
+        android:title="New"
+        android:icon="@drawable/chat666"
+        app:showAsAction="always" />
+
 </menu>

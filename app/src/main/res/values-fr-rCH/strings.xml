@@ -1,3 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Application de chat</string>
+    <string name="forget_password">Mot de passe oublié ?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="setting">Réglage</string>
+    <string name="language">Langue</string>
+    <string name="type_a_message">Tapez un message</string>
+    <string name="submit">NOUS FAIRE PARVENIR</string>
+    <!--    <string name="e_mail">E-mail</string>-->
+    <string name="enteremail">entrez le-mail</string>
+    <string name="email">E-mail</string>
+    <string name="sign_up">S ,INSCRIRE</string>
+    <string name="log_in">CONNEXION</string>
+    <string name="update_email">Mettre à jour le-mail</string>
+    <string name="name">Nom</string>
+    <string name="password" translatable="false">Mot de passe</string>
+    <string name="e_mail" translatable="false">E-mail</string>
+    <string name="update_name">Mettre à jour le nom</string>
+
+    <string name="save">Sauvegarder</string>
+    <string name="MsgLog">Voulez-vous vous déconnecter</string>
+    <string name="titleLogOut">Application de chat</string>
+    <string name="DeleteDi">Supprimer</string>
+    <string name="MsgDelete">Voulez-vous supprimer ?</string>
+    <string name="YesDel">Oui</string>
+    <string name="NoDel">non</string>
+    <string name="LogYes">Oui</string>
+    <string name="Nolog">non</string>
+    <string name="ForgetToast">Veuillez saisir un e-mail.</string>
+    <string name="EmailSent">E-mail envoyé avec succès pour réinitialiser votre mot de passe </string>
+    <string name="LoginToast">Lutilisateur nexiste pas</string>
+    <string name="SignUpToast">Erreur réessayez</string>
+    <string name="bluetoothEnable">Activer Bluetooth</string>
+    <string name="bluethoothDis">désactiver le bluetooth</string>
+    <string name="OnBlue">au</string>
+    <string name="offBlue">Désactivé</string>
+
 </resources>

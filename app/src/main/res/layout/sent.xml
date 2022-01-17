@@ -18,9 +18,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/message_shape"
-            android:backgroundTint="#0A1917"
+            android:backgroundTint="#06433A"
             android:padding="10dp"
-            android:text="this is sent message "
+            android:text="this is sent message"
             android:textColor="#FFFFFC"
             android:textSize="18sp"
             tools:ignore="TextContrastCheck" />

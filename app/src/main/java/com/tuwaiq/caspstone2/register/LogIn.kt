@@ -7,8 +7,10 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.tuwaiq.caspstone2.R
+import com.tuwaiq.caspstone2.Validator
 import com.tuwaiq.caspstone2.home
 
 class LogIn : AppCompatActivity() {
@@ -17,6 +19,7 @@ class LogIn : AppCompatActivity() {
     private lateinit var btnLogin: Button
     private lateinit var btnSignUp: Button
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var validator: Validator
 
     private lateinit var ForgetPass: TextView
     private val EMAIL_PATTERN = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
@@ -34,10 +37,8 @@ class LogIn : AppCompatActivity() {
         edtPassword = findViewById(R.id.edt_password)
         btnLogin = findViewById(R.id.btnlogin)
         btnSignUp = findViewById(R.id.btnSignUp)
-
+        validator = Validator()
         ForgetPass = findViewById(R.id.ForgetPass)
-//         btn_login=findViewById(R.id.et_login_password)
-//         tv_forget_password=findViewById(R.id.til_forget_email)
 
 
         btnSignUp.setOnClickListener {
@@ -51,21 +52,20 @@ class LogIn : AppCompatActivity() {
 
             login(email, password);
         }
-//         btn_login.setOnClickListener {
-//
-//         }
+
         ForgetPass.setOnClickListener {
             startActivity(Intent(this@LogIn, ForgetPassWord::class.java))
         }
     }
 
 
-    private fun login(email: String, password: String): Boolean {
 
-        if (email.matches(EMAIL_PATTERN.toRegex())) {
+    
+
+   private fun login(email: String, password: String){
 
 
-
+    if (validator.isEmail(email))
             // logic for logging user
 
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
@@ -82,7 +82,7 @@ class LogIn : AppCompatActivity() {
 
                 } else {
 
-                    Toast.makeText(this@LogIn, "User does not exist", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LogIn, getString(R.string.LoginToast), Toast.LENGTH_SHORT).show()
 
                 }
 
@@ -90,20 +90,17 @@ class LogIn : AppCompatActivity() {
 
 
 
-            return true
+
 
         }
 
 
 
-        return false
-
-    }
-    private fun openApp() {
-        val intent = Intent(this@LogIn, home::class.java)
-        finish()
-        startActivity(intent)
-    }
 
 
     }
+
+
+
+
+

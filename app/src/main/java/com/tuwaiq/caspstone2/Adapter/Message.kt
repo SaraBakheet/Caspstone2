@@ -7,6 +7,7 @@ class Message {
   //  var receiverId :String?=null
      constructor(){}
 
+
     constructor(message: String? , sendId: String?){
         this.message=message
         this.sendId= sendId

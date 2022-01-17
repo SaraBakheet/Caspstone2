@@ -1,3 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">محادثه</string>
+    <string name="forget_password">نسيت كلمه المرور ؟</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="setting">الاعدادات </string>
+    <string name="language">اللغه </string>
+    <string name="type_a_message">اكتب رساله </string>
+    <string name="submit">تأكيد</string>
+    <!--    <string name="e_mail">E-mail</string>-->
+    <string name="enteremail">ادخل الايميل</string>
+    <string name="email">الايميل</string>
+    <string name="sign_up">تسجبل جديد</string>
+    <string name="log_in">تسجيل دخول</string>
+    <string name="update_email">تحديث الايميل</string>
+    <string name="name">الاسم</string>
+    <string name="password" translatable="false">كلمه المرور</string>
+    <string name="e_mail" translatable="false">الايميل</string>
+    <string name="update_name">تحديث الاسم</string>
+
+
+    <string name="save">حفظ</string>
+    <string name="MsgLog">هل تريد تسجيل الخروج؟</string>
+    <string name="MsgDelete">هل انت متأكد من رغبتك في حذف حسابك؟</string>
+    <string name="YesDel">نعم </string>
+    <string name="NoDel">لا</string>
+    <string name="titleLogOut">تنبيه</string>
+    <string name="DeleteDi">حذف</string>
+
+
+    <string name="LogYes">نعم</string>
+    <string name="Nolog">لا</string>
+
+    <string name="ForgetToast">الرجاء ادخال البريد الالكتروني</string>
+    <string name="EmailSent">تم ارسال البريد الالكتروني بنجاح</string>
+    <string name="LoginToast">المستخدم غير موجود</string>
+    <string name="SignUpToast">خطأ حاول مره أخرى</string>
+    <string name="bluetoothEnable">البلوتوث متاح</string>
+    <string name="bluethoothDis">البلوتوث غير متاح</string>
+    <string name="OnBlue">تشغيل</string>
+    <string name="offBlue">ايقاف</string>
 </resources>

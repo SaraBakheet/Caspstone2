@@ -1,6 +1,5 @@
-package com.tuwaiq.caspstone2
+package com.tuwaiq.caspstone2.notification
 
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -12,6 +11,8 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.work.Worker
 import androidx.work.WorkerParameters
+import com.tuwaiq.caspstone2.R
+import com.tuwaiq.caspstone2.home
 
 class MyWorker(context: Context,workerParameters: WorkerParameters):
 Worker(context,workerParameters){
@@ -30,7 +31,7 @@ Worker(context,workerParameters){
         return Result.success()
     }
     private fun showNotification(){
-        val intent =Intent(applicationContext,home::class.java).apply {
+        val intent =Intent(applicationContext, home::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
         val pendingIntent =PendingIntent.getActivity(
@@ -41,9 +42,9 @@ Worker(context,workerParameters){
             applicationContext,
             CHANNEL_ID
         )
-            .setSmallIcon(R.drawable.chat1)
-            .setContentTitle("new Task")
-            .setContentText("welcome")
+            .setSmallIcon(R.drawable.chatimage)
+            .setContentTitle("CHAT APP")
+            .setContentText("welcome to Chat App")
             .setPriority(NotificationCompat.PRIORITY_MAX)
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)

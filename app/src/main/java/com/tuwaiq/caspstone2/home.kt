@@ -5,11 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.get
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.work.*
@@ -17,9 +14,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.tuwaiq.caspstone2.Adapter.User
 import com.tuwaiq.caspstone2.Adapter.UserAdapter
+import com.tuwaiq.caspstone2.notification.MyWorker
 
-import com.tuwaiq.caspstone2.register.LogIn
 import java.util.concurrent.TimeUnit
+
 
 class home : AppCompatActivity(), SearchView.OnQueryTextListener {
     private lateinit var searchItem: SearchView
@@ -33,11 +31,13 @@ class home : AppCompatActivity(), SearchView.OnQueryTextListener {
 
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-       // simpleWork()
+         simpleWork()
         myWorkManager()
 
         // replaceFragment(homeFragment as homeFragment)
@@ -50,6 +50,7 @@ class home : AppCompatActivity(), SearchView.OnQueryTextListener {
         userRecyclerView = findViewById(R.id.userRecyclerView)
         profile = findViewById(R.id.profile1)
         setting = findViewById(R.id.setting)
+
         userRecyclerView.layoutManager = LinearLayoutManager(this)
         userRecyclerView.adapter = adapter
         //show in recylrerview
@@ -84,14 +85,30 @@ class home : AppCompatActivity(), SearchView.OnQueryTextListener {
             val intent = Intent(this, Setting::class.java )
             startActivity(intent)
         }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         searchItem = (menu!!.findItem(R.id.search).actionView as SearchView)
         searchItem.setOnQueryTextListener(this)
+
         return super.onCreateOptionsMenu(menu)
     }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item?.itemId) {
+            R.id.newChat -> {
+                this.startActivity(Intent(this, search::class.java))
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+
+        }
+
+    }
+
 
 
 
@@ -132,7 +149,7 @@ class home : AppCompatActivity(), SearchView.OnQueryTextListener {
 
         val myRequest = PeriodicWorkRequest.Builder(
             MyWorker::class.java,
-            15,
+            3,
             TimeUnit.MINUTES
         ).setConstraints(constraints)
             .build()
@@ -145,6 +162,8 @@ class home : AppCompatActivity(), SearchView.OnQueryTextListener {
             )
     }
 }
+
+
 
 
 

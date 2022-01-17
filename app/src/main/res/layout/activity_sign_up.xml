@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back4">
+    android:background="@color/white">
 
 
     <androidx.cardview.widget.CardView
@@ -28,84 +28,103 @@
 
     <EditText
         android:id="@+id/edt_name"
-        android:layout_width="299dp"
-        android:layout_height="86dp"
+        android:layout_width="297dp"
+        android:layout_height="83dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="184dp"
         android:layout_marginEnd="63dp"
         android:background="@drawable/edt_background"
-        android:hint="Name"
+        android:backgroundTint="#DFE4E8"
+        android:hint="@string/name"
         android:paddingLeft="13dp"
         android:textColor="#000000"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card" />
 
     <EditText
         android:id="@+id/edt_email"
-        android:layout_width="298dp"
-        android:layout_height="87dp"
+        android:layout_width="297dp"
+        android:layout_height="79dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="63dp"
         android:background="@drawable/edt_background"
-        android:hint="Email"
+        android:backgroundTint="#BDC1BD"
+        android:hint="@string/email"
         android:paddingLeft="13dp"
         android:textColor="#000000"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_name" />
 
     <EditText
         android:id="@+id/edt_password"
-        android:layout_width="302dp"
-        android:layout_height="83dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="297dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="13dp"
-        android:layout_marginEnd="78dp"
+        android:layout_marginEnd="64dp"
         android:layout_marginBottom="61dp"
         android:background="@drawable/edt_background"
-        android:hint="Password"
+        android:backgroundTint="#CBEACC"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:paddingLeft="13dp"
         android:textColor="#000000"
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_email"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <Button
         android:id="@+id/btnSignUp"
         android:layout_width="189dp"
         android:layout_height="63dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginEnd="126dp"
+        android:layout_marginStart="108dp"
         android:layout_marginBottom="104dp"
         android:background="@drawable/btn_background"
         android:text="SIGN UP"
         android:textColor="@color/black"
         android:textSize="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="167dp"
-        android:layout_height="149dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="200dp"
+        android:id="@+id/imageView3"
+        android:layout_width="166dp"
+        android:layout_height="177dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btnSignUp"
+        app:layout_constraintTop_toBottomOf="@+id/edt_password"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/back0550" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="190dp"
+        android:layout_height="152dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="191dp"
+        android:layout_marginBottom="33dp"
+        app:layout_constraintBottom_toTopOf="@+id/edt_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/chatme1" />
+        app:srcCompat="@drawable/back044" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

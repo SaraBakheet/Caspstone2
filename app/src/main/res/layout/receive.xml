@@ -21,7 +21,7 @@
             android:background="@drawable/message_shape"
             android:backgroundTint="#48A878"
             android:padding="10dp"
-            android:text="this is sent message "
+            android:text="this is receive message"
             android:textColor="#FFFfff"
             android:textSize="18sp"
 
