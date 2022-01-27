@@ -36,6 +36,8 @@ class Setting : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         loadLocate()
         setContentView(R.layout.activity_setting)
+        supportActionBar?.hide()
+
 
 
         user = FirebaseAuth.getInstance()

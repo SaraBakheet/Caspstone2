@@ -4,65 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C3B1B1"
-    android:backgroundTint="#F4E7E7"
+    android:background="#7E5252"
+    android:backgroundTint="#E9E9ED"
     android:backgroundTintMode="screen"
     tools:context=".home">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userRecyclerView"
-        android:layout_width="414dp"
-        android:layout_height="635dp"
+        android:layout_width="404dp"
+        android:layout_height="621dp"
         android:background="#0F8A8282"
-        android:backgroundTint="#68656E"
+        android:backgroundTint="#CDD7DF"
         app:layout_constraintBottom_toBottomOf="parent"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.312"
+        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/user_layout" />
 
     <ImageView
         android:id="@+id/chat1"
-        android:layout_width="56dp"
-        android:layout_height="54dp"
+        android:layout_width="40dp"
+        android:layout_height="42dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="176dp"
         android:layout_marginBottom="4dp"
+        android:src="@drawable/chat99_bubble_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintStart_toEndOf="@+id/profile1"
         app:layout_constraintTop_toBottomOf="@+id/userRecyclerView"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/chat" />
+        app:layout_constraintVertical_bias="0.516" />
 
     <ImageView
         android:id="@+id/profile1"
-        android:layout_width="43dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="49dp"
+        android:layout_width="47dp"
+        android:layout_height="45dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="5dp"
         android:layout_marginBottom="8dp"
+        android:src="@drawable/account99_circle_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.317"
-        app:layout_constraintStart_toEndOf="@+id/chat1"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userRecyclerView"
-        app:layout_constraintVertical_bias="0.195"
-        app:srcCompat="@drawable/profile1" />
+        app:layout_constraintVertical_bias="0.4" />
 
     <ImageView
-        android:id="@+id/setting"
-        android:layout_width="51dp"
-        android:layout_height="58dp"
-        android:layout_marginEnd="320dp"
-        android:layout_marginBottom="4dp"
+        android:id="@+id/setting22"
+        android:layout_width="43dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/settings99_applications_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/setting" />
+        app:layout_constraintTop_toBottomOf="@+id/userRecyclerView"
+        app:layout_constraintVertical_bias="0.636" />
+
+    <ImageView
+        android:id="@+id/chatbot"
+        android:layout_width="45dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/chatbot_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userRecyclerView"
+        app:layout_constraintVertical_bias="0.653" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

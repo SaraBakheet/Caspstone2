@@ -6,14 +6,10 @@ package com.tuwaiq.caspstone2.register
 import kotlin.test.Test
 import kotlin.test.BeforeTest
 import kotlin.test.assertEquals
-import org.junit.rules.TestRule
-import org.junit.runner.RunWith
-import androidx.arch.core.executor.DefaultTaskExecutor
-import com.tuwaiq.caspstone2.Validator
 
 class LogInTest{
 
-    private lateinit var validator:Validator
+    private lateinit var validator: Validator
    @BeforeTest
     fun setUp(){
        validator = Validator()

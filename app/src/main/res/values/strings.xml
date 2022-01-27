@@ -33,7 +33,7 @@
     <string name="SignUpToast">Error try again</string>
     <string name="bluetoothEnable">bluetooth Enable</string>
     <string name="bluethoothDis">bluetooth disable</string>
-
+    <string name="searchToast">no result</string>
     <string name="OnBlue">OnBlue</string>
     <string name="offBlue">Off</string>
 </resources>

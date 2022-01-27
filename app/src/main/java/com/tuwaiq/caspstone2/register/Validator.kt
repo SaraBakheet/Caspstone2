@@ -1,4 +1,4 @@
-package com.tuwaiq.caspstone2
+package com.tuwaiq.caspstone2.register
 
 class Validator {
 

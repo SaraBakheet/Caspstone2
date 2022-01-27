@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.FirebaseAuth
 import com.tuwaiq.caspstone2.ChatActivity
 import com.tuwaiq.caspstone2.R
+import com.tuwaiq.caspstone2.data.User
 
 
 class UserAdapter(val context:Context, var userList:ArrayList<User>):

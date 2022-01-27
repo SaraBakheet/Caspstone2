@@ -1,4 +1,4 @@
 package com.tuwaiq.caspstone2.data
 
-class Message2 {
+data class Message2(val message: String, val id: String, val time: String){
 }

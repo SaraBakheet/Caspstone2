@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
 import android.widget.ImageView
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,9 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.work.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.tuwaiq.caspstone2.Adapter.User
+import com.tuwaiq.caspstone2.data.User
 import com.tuwaiq.caspstone2.Adapter.UserAdapter
 import com.tuwaiq.caspstone2.notification.MyWorker
+import com.tuwaiq.caspstone2.ui.ChatBot
 
 import java.util.concurrent.TimeUnit
 
@@ -28,6 +28,7 @@ class home : AppCompatActivity(), SearchView.OnQueryTextListener {
     private lateinit var mDbRef: DatabaseReference
     private lateinit var profile: ImageView
     private lateinit var setting: ImageView
+    private lateinit var chatBot:ImageView
 
 
 
@@ -36,6 +37,7 @@ class home : AppCompatActivity(), SearchView.OnQueryTextListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
 
          simpleWork()
         myWorkManager()
@@ -49,7 +51,8 @@ class home : AppCompatActivity(), SearchView.OnQueryTextListener {
 
         userRecyclerView = findViewById(R.id.userRecyclerView)
         profile = findViewById(R.id.profile1)
-        setting = findViewById(R.id.setting)
+        setting = findViewById(R.id.setting22)
+        chatBot=findViewById(R.id.chatbot)
 
         userRecyclerView.layoutManager = LinearLayoutManager(this)
         userRecyclerView.adapter = adapter
@@ -85,6 +88,12 @@ class home : AppCompatActivity(), SearchView.OnQueryTextListener {
             val intent = Intent(this, Setting::class.java )
             startActivity(intent)
         }
+        chatBot.setOnClickListener{
+            val intent = Intent(this, ChatBot::class.java )
+            startActivity(intent)
+        }
+
+
 
     }
 
@@ -95,21 +104,6 @@ class home : AppCompatActivity(), SearchView.OnQueryTextListener {
 
         return super.onCreateOptionsMenu(menu)
     }
-
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item?.itemId) {
-            R.id.newChat -> {
-                this.startActivity(Intent(this, search::class.java))
-                return true
-            }
-            else -> super.onOptionsItemSelected(item)
-
-        }
-
-    }
-
-
 
 
     override fun onQueryTextSubmit(query: String?): Boolean {
@@ -149,7 +143,7 @@ class home : AppCompatActivity(), SearchView.OnQueryTextListener {
 
         val myRequest = PeriodicWorkRequest.Builder(
             MyWorker::class.java,
-            3,
+            4,
             TimeUnit.MINUTES
         ).setConstraints(constraints)
             .build()

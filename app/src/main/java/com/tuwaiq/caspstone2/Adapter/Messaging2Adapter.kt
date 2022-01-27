@@ -1,4 +1,4 @@
-package com.tuwaiq.caspstone2.ui
+package com.tuwaiq.caspstone2.Adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

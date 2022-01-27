@@ -1,33 +1,21 @@
 package com.tuwaiq.caspstone2
 
 import android.app.Activity
-import android.app.VoiceInteractor
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.provider.Settings
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide.init
-import com.bumptech.glide.load.Option
-import com.bumptech.glide.load.Options
-import com.fxn.pix.Options.init
 import com.fxn.pix.Pix
 import com.fxn.utility.PermUtil
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.tuwaiq.caspstone2.Adapter.Message
+import com.tuwaiq.caspstone2.data.Message
 import com.tuwaiq.caspstone2.Adapter.MessageAdapter
-import com.tuwaiq.caspstone2.register.SignUp
-import java.security.cert.PKIXRevocationChecker
 
 
 class ChatActivity : AppCompatActivity() {

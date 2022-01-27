@@ -1,4 +1,4 @@
-package com.tuwaiq.caspstone2.Adapter
+package com.tuwaiq.caspstone2.data
 
 class Message {
     var message :String? = null

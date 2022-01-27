@@ -7,10 +7,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.tuwaiq.caspstone2.R
-import com.tuwaiq.caspstone2.Validator
 import com.tuwaiq.caspstone2.home
 
 class LogIn : AppCompatActivity() {

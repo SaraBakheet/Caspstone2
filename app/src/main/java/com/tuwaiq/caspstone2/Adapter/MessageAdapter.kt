@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.google.firebase.auth.FirebaseAuth
 
 import com.tuwaiq.caspstone2.R
+import com.tuwaiq.caspstone2.data.Message
 
 class MessageAdapter(val context:Context,val messageList:ArrayList<Message>):
     RecyclerView.Adapter<ViewHolder>(){
@@ -49,7 +49,7 @@ class MessageAdapter(val context:Context,val messageList:ArrayList<Message>):
 
 
     }
-    //everything is ok ? ^_^
+    //everything is ok  ^_^
     override fun getItemViewType(position: Int): Int {
         val currentMessage = messageList[position]
 
